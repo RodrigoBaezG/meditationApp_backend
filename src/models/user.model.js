@@ -1,5 +1,5 @@
 // src/models/user.model.js
-import pool from '../config/db.config.js';
+import pool from '../../config/db.config.js';
 
 /**
  * Módulo para interactuar con la tabla 'users'.

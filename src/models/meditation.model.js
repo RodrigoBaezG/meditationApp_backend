@@ -1,7 +1,7 @@
 // src/models/meditation.model.js
 // Usando funciones y exportando un objeto de métodos.
 
-import pool from '../config/db.config.js';
+import pool from '../../config/db.config.js';
 
 /**
  * Registra una nueva sesión de meditación en la base de datos.
@@ -17,10 +17,10 @@ const create = async (userId, duration, date, note) => {
         VALUES ($1, $2, $3, $4) RETURNING *;
     `;
     const values = [userId, duration, date, note];
-    
+
     // Ejecuta la consulta SQL
     const { rows } = await pool.query(query, values);
-    
+
     // Retorna el primer (y único) registro insertado
     return rows[0];
 };
@@ -35,10 +35,10 @@ const findByUserId = async (userId) => {
         SELECT id, duration_minutes, meditation_date, note, created_at
         FROM meditations WHERE user_id = $1 ORDER BY meditation_date DESC;
     `;
-    
+
     // Ejecuta la consulta SQL. Solo necesita el userId como valor.
     const { rows } = await pool.query(query, [userId]);
-    
+
     // Retorna todos los registros encontrados
     return rows;
 };
