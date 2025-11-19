@@ -1,7 +1,7 @@
 // src/models/meditation.model.js
 // Usando funciones y exportando un objeto de métodos.
 
-import pool from '../../config/db.config.js';
+import pool from '../config/db_config.js';
 
 /**
  * Registra una nueva sesión de meditación en la base de datos.
